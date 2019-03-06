@@ -17,23 +17,31 @@ public class Password {
         Scanner input = new Scanner(System.in);
         System.out.println("Please enter your username");
         String baseusername = "admin";
-        boolean  login = true;
+        boolean login = true;
+        int tries = 3;
         while (login) {
             String username = input.next();
             if (username.equals(baseusername)) {
-                System.out.println("Hello," + username + " please enter your password");
-                String password = input.next();
+                System.out.println("Hello," + username + ", Please enter your password");
                 String basepassword = "Password";
-                if (password.equals(basepassword)) {
-                    System.out.println("Welcome");
-                    login = false;
-                } else {
-                    System.out.println("incorrect password, try again");
+                while (true) {
+                    String password = input.next();
+                    if (password.equals(basepassword)) {
+                        System.out.println("Welcome");
+                        login = false;
+                    } else {
+                        System.out.println("Incorrect password, try again");
+                        System.out.println("You have " + tries + " tries remaining");
+                        tries = tries - 1;
+                    }
+                   if (tries == -1){
+                       System.out.println("Login failed, you are locked out.");
+                       System.exit(0);
+                   }
                 }
-
             } else {
                 System.out.println("Username not found, try again");
-                
+
             }
         }
     }
