@@ -19,21 +19,23 @@ public class Authorization {
         Random security = new Random();
         final int max_code = 99999;
         String username1 = "admin";
-        String username2 = "Brody";
+        String username2 = "CIT";
         String password1 = "Access";
-        String password2 = "Paugh";
+        String password2 = "Java";
         boolean loginuser = true;
         boolean loginpass = true;
         boolean verification = true;
-        int attempts = 3;
         while (loginuser) {
+            int attempts = 3;
             System.out.println("Please enter username");
             String user = input.next();
             if (user.equals(username1)) {
                 while (loginpass) {
                     System.out.println("Hello, " + user);
                     System.out.println("Please enter your password");
-                    String pass = input.next();
+                    String[] pass = new String[3];
+                    int i = 0;
+                    pass[i] = input.nextLine();
                     if (pass.equals(password1)) {
                         System.out.println("Welcome, " + user);
                         int code = security.nextInt(max_code);
@@ -45,6 +47,7 @@ public class Authorization {
                             break;
                         } else {
                             System.out.println("Incorrect verification. you are locked out.");
+
                             System.exit(0);
                         }
 
@@ -53,12 +56,13 @@ public class Authorization {
                         attempts--;
                         if (attempts == -1) {
                             System.out.println("No attempts remain. You are locked out.");
-                            System.exit(0);
+                            System.out.println("Failed Passwords: " + pass);
+                            break;
                         }
                     }
                 }
-            }else if(user.equals(username2)){
-                while (loginpass){
+            } else if (user.equals(username2)) {
+                while (loginpass) {
                     System.out.println("Hello, " + user);
                     System.out.println("Please enter your password");
                     String pass = input.next();
@@ -84,10 +88,10 @@ public class Authorization {
                             System.exit(0);
                         }
                     }
-                   
+
                 }
 
-            }else {
+            } else {
                 System.out.println("User not found, try again");
             }
 
