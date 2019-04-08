@@ -44,7 +44,7 @@ public class conversions {
                     DaytoMin();
                     break;
                 case "hours to minutes":
-                    HourtoMin();
+                    
                     break;
                 default:
                     System.out.println("Sorry " + con + " has not been added yet, come back later");
@@ -100,17 +100,10 @@ public class conversions {
         Scanner input = new Scanner(System.in);
         System.out.println("How many day do you want to put into minutes?");
         double days = input.nextDouble();
-        double min = dtoh(days);
+        
     }//end DaytoMin
     
-    public static double dtoh(double days){
-        double hperd = days * 24;
-        htom(hperd);
-    }//end HourtoMin
-    
-    public static double htom(double hperd){
-        
-    }
+   
         
     
     
