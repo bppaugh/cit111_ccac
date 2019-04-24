@@ -21,6 +21,15 @@ public class carland {
         displayCarStats(delorean);
         delorean.stopEngine();
         displayCarStats(delorean);
+        car bmw = new car();
+        bmw.year = 1985;
+        bmw.makemodel = "BMW 733i";
+        bmw.accelerate(55);
+        bmw.startEngine();
+        bmw.decelerate(25);
+        displayCarStats(bmw);
+        bmw.stopEngine();
+        
         
     }
     public static void displayCarStats(car anycar){
