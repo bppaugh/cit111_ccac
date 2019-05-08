@@ -26,20 +26,30 @@ public class Database extends JPanel {
     public Database() {
         super(new GridLayout(1, 0));
         ExtractInfo stats = new ExtractInfo();
+        stats.reading();
+        String team= stats.lineup[0];
+        String center = stats.lineup[1];
+        String LT = stats.lineup[2];
+        String LG = stats.lineup[3];
+        String RT = stats.lineup[4];
+        String RG = stats.lineup[5];
+        String num = stats.lineup[6];
 
         String[] ColumnNames = {"Team", "Left Tackle", "Left Guard", "Center",
             "Right Guard", "Right Tackle", "Overall Rank"};
 
-        Object[][] data = {
-            {stats.Team, stats.LTackle, stats.LGuard, stats.Center, stats.RGuard,
-                stats.RTackle, stats.ranking}
+        while(true){
+            Object[][] data = {
+            {team, center, LT, LG, RT,RG, num} , 
+             {team, center, LT, LG, RT,RG, num}
 
         };
 
         final JTable table = new JTable(data, ColumnNames);
         table.setPreferredScrollableViewportSize(new Dimension(500, 70));
         table.setFillsViewportHeight(true);
-
+        
+        
         if (DEBUG) {
             table.addMouseListener(new MouseAdapter() {
                 public void mouseClicked(MouseEvent e) {
@@ -48,9 +58,13 @@ public class Database extends JPanel {
             });
 
         }
+        
         JScrollPane scrollPane = new JScrollPane(table);
+        
+                
 
         add(scrollPane);
+        }
 
     }//end database
 
@@ -89,15 +103,6 @@ public class Database extends JPanel {
                 creatAndShowGUI();
             }
         });
-    }
-
-    public static void pullData() {
-        ExtractInfo lineup = new ExtractInfo();
-        boolean more = true;
-        while (more == true) {
-            System.out.println(lineup.lineup[0]);
-
-        }
     }
 }//end class
 

@@ -25,10 +25,13 @@ public class ExtractInfo {
     public String RTackle;
     public String ranking;
     public String[] lineup;
-
+    
+    public ExtractInfo(){
+        lineup = new String[7];
+    
+}
     public static void main(String[] args) throws FileNotFoundException, IOException {
         System.out.println("this is stupid");
-       
 
     }//end main
     
@@ -44,11 +47,13 @@ public class ExtractInfo {
             while ((line = br.readLine()) != null) {
 
                 lineup = line.split(cvsSplitBy);
-                System.out.println(lineup[0] + lineup[1]);
-
+                System.out.println(lineup[0] +" " + lineup[1] +" "+lineup[2]+" "
+                        + lineup[3] + " " + lineup[4] + " " + lineup[5] + " " + 
+                        lineup[6]);
+                
                 
 
-                System.out.print(list);
+                
             } //end while     
 
         } catch (FileNotFoundException e) {
